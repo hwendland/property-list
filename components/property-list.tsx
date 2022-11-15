@@ -4,6 +4,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { useSWRConfig } from 'swr';
 import { useSortedProperties } from '../hooks/useSortedProperties';
 import styles from '../styles/PropertyList.module.css';
+import { Box } from '@material-ui/core';
 
 export default function PropertyList() {
   const { mutate } = useSWRConfig();
@@ -32,8 +33,12 @@ export default function PropertyList() {
       .catch((error) => console.log('error', error));
   };
 
-  if (isLoading) return <CircularProgress />;
-  if (isError) return <div>Error</div>;
+  if (isLoading) return (
+    <Box className={styles.progress}>
+      <CircularProgress />
+    </Box>
+  );
+  if (isError) return <Box className={styles.progress}>Error</Box>;
 
   return (
     <Grid container spacing={2} className={styles.container}>
