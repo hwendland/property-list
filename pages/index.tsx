@@ -10,8 +10,8 @@ interface HomeProps {
 }
 
 export default function Home({ fallback }: HomeProps) {
-  const [sort, setSort] = useState(PropertySortOption.PRICE_DESCENDING)
-  
+  const [sort, setSort] = useState({ key: 'price', order: 'desc'})
+
   return (
     <SWRConfig value={{ fallback }}>
       <SortContext.Provider value={{sort, setSort}}>

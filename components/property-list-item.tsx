@@ -31,7 +31,7 @@ export default function PropertyListItem({ property, onDelete }: PropertyListIte
         disableTypography
       />
       <CardContent className={styles.cardContent}>
-        <Image src="/visual.png" alt="visual" width={130} height={88}></Image>
+        <Image priority src="/visual.png" alt="visual" width={130} height={88}></Image>
         <div className={styles.info}>
           <div className={styles.infoRow}>
             <span className={styles.label}>Rooms</span>

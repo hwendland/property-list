@@ -8,11 +8,5 @@ export interface Property {
   id: string;
 }
 
-export type PropertyKey = keyof Property;
-
-export enum PropertySortOption {
-  PRICE_ASCENDING,
-  PRICE_DESCENDING,
-  NAME_ASCENDING,
-  NAME_DESCENDING,
-}
+export type PropertySortOption = 'price' | 'address';
+export type SortOrder = 'asc' | 'desc'

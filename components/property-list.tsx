@@ -1,10 +1,8 @@
 import Grid from "@material-ui/core/Grid";
-import { useProperties } from "../hooks/useProperties";
 import PropertyListItem from "./property-list-item";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useSWRConfig } from 'swr';
-import { useContext } from "react";
-import { SortContext, useSortedProperties } from "../context/sortContext";
+import { useSortedProperties } from "../hooks/useSortedProperties";
 
 export default function PropertyList() {  
   const { mutate } = useSWRConfig();

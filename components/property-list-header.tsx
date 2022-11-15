@@ -7,17 +7,21 @@ import AddIcon from "@material-ui/icons/Add"
 import Drawer from "@material-ui/core/Drawer";
 import PropertyForm from "./property-form";
 import { PropertySortOption } from "../models/property";
-import { SortContext } from "../context/sortContext";
+import { SortContext, SortContextType } from "../context/sortContext";
 
 export default function PropertyListHeader() {
   const { sort, setSort } = useContext(SortContext)
   const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
-  const handleSortChange = (event: React.ChangeEvent<{
-    name?: string | undefined;
-    value: unknown;
-  }>) => {
-    setSort(event.target.value as PropertySortOption);
+  const handleSortChange = (
+    event: React.ChangeEvent<{
+      name?: string | undefined;
+      value: unknown;
+    }>
+  ) => {
+    const newSort = JSON.parse(event.target.value as string)
+    console.log(newSort)
+    setSort(newSort);
   };
 
   const toggleDrawer =
@@ -37,18 +41,23 @@ export default function PropertyListHeader() {
 
   return (
     <div className={styles.container}>
-      <Select value={sort} onChange={handleSortChange} disableUnderline className={styles.select}>
-        <MenuItem value={PropertySortOption.PRICE_DESCENDING}>
+      <Select
+        value={JSON.stringify(sort)}
+        onChange={handleSortChange}
+        disableUnderline
+        className={styles.select}
+      >
+        <MenuItem value={JSON.stringify({ key: 'price', order: 'desc' })}>
           Price descending
         </MenuItem>
-        <MenuItem value={PropertySortOption.PRICE_ASCENDING}>
+        <MenuItem value={JSON.stringify({ key: 'price', order: 'asc' })}>
           Price ascending
         </MenuItem>
-        <MenuItem value={PropertySortOption.NAME_DESCENDING}>
-          Name descending
+        <MenuItem value={JSON.stringify({ key: 'address', order: 'desc' })}>
+          Address descending
         </MenuItem>
-        <MenuItem value={PropertySortOption.NAME_ASCENDING}>
-          Name ascending
+        <MenuItem value={JSON.stringify({ key: 'address', order: 'asc' })}>
+          Address ascending
         </MenuItem>
       </Select>
       <Button
@@ -58,12 +67,8 @@ export default function PropertyListHeader() {
       >
         Add Property
       </Button>
-      <Drawer
-        anchor="right"
-        open={isDrawerOpen}
-        onClose={toggleDrawer(false)}
-      >
-        <PropertyForm onClose={toggleDrawer(false)}/>
+      <Drawer anchor="right" open={isDrawerOpen} onClose={toggleDrawer(false)}>
+        <PropertyForm onClose={toggleDrawer(false)} />
       </Drawer>
     </div>
   );
