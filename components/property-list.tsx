@@ -3,6 +3,7 @@ import PropertyListItem from "./property-list-item";
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useSWRConfig } from 'swr';
 import { useSortedProperties } from "../hooks/useSortedProperties";
+import styles from "../styles/PropertyList.module.css"
 
 export default function PropertyList() {  
   const { mutate } = useSWRConfig();
@@ -35,7 +36,7 @@ export default function PropertyList() {
   if (isError) return <div>Error</div>
 
   return (
-    <Grid container spacing={2} style={{ padding: '64px 24px' }}>
+    <Grid container spacing={2} className={styles.container}>
       {properties?.map((property) => (
         <Grid
           item
