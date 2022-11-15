@@ -37,10 +37,20 @@ export default function PropertyList() {
   if (isError) return <div>Error</div>
 
   return (
-    <Grid container spacing={2} style={{ padding: "64px 24px"}}>
+    <Grid container spacing={2} style={{ padding: '64px 24px' }}>
       {properties?.map((property) => (
-        <Grid item xs={12} sm={3} key={property.id}>
-          <PropertyListItem property={property} onDelete={() => handleDelete(property.id)} />
+        <Grid
+          item
+          xs={12}
+          sm={6}
+          md={4}
+          lg={3}
+          key={property.id}
+        >
+          <PropertyListItem
+            property={property}
+            onDelete={() => handleDelete(property.id)}
+          />
         </Grid>
       ))}
     </Grid>

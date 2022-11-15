@@ -53,7 +53,7 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
   };;
 
   return (
-    <>
+    <div className={styles.container}>
       <div className={styles.header}>
         <span>New Property</span>
         <IconButton onClick={onClose}>
@@ -112,6 +112,6 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
           Create Property
         </Button>
       </div>
-    </>
+    </div>
   );
 }
