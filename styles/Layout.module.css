@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  height: 100vh;
+}
+
+.leftNav {
+  width: 72px;
+  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 28px;
+}
+
+.header {
+  border-bottom: 0.5px solid #BCBDBC;
+  height: 68px;
+  width: 100%;
+  position: sticky;
+}
+
+.main {
+  flex-grow: 1;
+  position: relative;
+  overflow: auto;
+}
+
+.content {
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@media screen and (max-width: 600px) {
+  .leftNav {
+    display: none;
+  }
+
+  .header {
+    display: none;
+  }
+}

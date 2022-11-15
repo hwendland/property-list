@@ -1,0 +1,36 @@
+.header {
+  padding: 16px;
+  background-color: #444;
+  width: 480px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-size: 16px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  background-color: #F0F0F0;
+  width: 100%;
+  padding: 16px;
+}
+
+.form {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: #444;
+  font-size: 14px;
+}
+
+.formTitle {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.form input::placeholder {
+  color: red;
+}
