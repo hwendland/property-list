@@ -10,8 +10,8 @@ const initialState: Omit<Property, 'id' | 'createdAt'> = {
   address: '',
   name: '',
   price: '',
-  plotSize: Infinity,
-  rooms: Infinity,
+  plotSize: 0,
+  rooms: 0,
 };
 
 interface PropertyFormProps {
@@ -68,7 +68,6 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
       <div className={styles.form}>
         <span className={styles.formTitle}>Property details</span>
         <TextField
-          required
           name="address"
           label="Address"
           type="text"
@@ -77,7 +76,6 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
           onChange={handleInputChange}
         />
         <TextField
-          required
           name="name"
           label="Name"
           type="text"
@@ -85,7 +83,6 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
           onChange={handleInputChange}
         />
         <TextField
-          required
           name="price"
           label="Price"
           type="text"
@@ -96,19 +93,17 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
           }}
         />
         <TextField
-          required
           name="plotSize"
           label="Plot size"
           type="number"
-          value={data.plotSize}
+          value={data.plotSize || ''}
           onChange={handleInputChange}
         />
         <TextField
-          required
           name="rooms"
           label="Rooms"
           type="number"
-          value={data.rooms}
+          value={data.rooms || ''}
           onChange={handleInputChange}
         />
       </div>
