@@ -1,17 +1,16 @@
-import MenuItem from "@material-ui/core/MenuItem";
+import MenuItem from '@material-ui/core/MenuItem';
 import Select from '@material-ui/core/Select';
-import styles from '../styles/PropertyListHeader.module.css'
-import React, { useContext, useState } from "react";
-import Button from "@material-ui/core/Button";
-import AddIcon from "@material-ui/icons/Add"
-import Drawer from "@material-ui/core/Drawer";
-import PropertyForm from "./property-form";
-import { PropertySortOption } from "../models/property";
-import { SortContext, SortContextType } from "../context/sortContext";
+import styles from '../styles/PropertyListHeader.module.css';
+import React, { useContext, useState } from 'react';
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import Drawer from '@material-ui/core/Drawer';
+import PropertyForm from './property-form';
+import { SortContext } from '../context/sortContext';
 
 export default function PropertyListHeader() {
-  const { sort, setSort } = useContext(SortContext)
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+  const { sort, setSort } = useContext(SortContext);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const handleSortChange = (
     event: React.ChangeEvent<{
@@ -19,14 +18,13 @@ export default function PropertyListHeader() {
       value: unknown;
     }>
   ) => {
-    const newSort = JSON.parse(event.target.value as string)
-    console.log(newSort)
+    const newSort = JSON.parse(event.target.value as string);
+    console.log(newSort);
     setSort(newSort);
   };
 
   const toggleDrawer =
-    (open: boolean) =>
-    (event: React.KeyboardEvent | React.MouseEvent) => {
+    (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
         event.type === 'keydown' &&
         ((event as React.KeyboardEvent).key === 'Tab' ||
@@ -37,7 +35,6 @@ export default function PropertyListHeader() {
 
       setIsDrawerOpen(open);
     };
-
 
   return (
     <div className={styles.container}>

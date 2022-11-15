@@ -11,8 +11,8 @@ const initialState: Omit<Property, 'id' | 'createdAt'> = {
   name: '',
   price: '',
   plotSize: Infinity,
-  rooms: Infinity
-}
+  rooms: Infinity,
+};
 
 interface PropertyFormProps {
   onClose: (event: React.KeyboardEvent | React.MouseEvent) => void;
@@ -21,9 +21,11 @@ interface PropertyFormProps {
 export default function PropertyForm({ onClose }: PropertyFormProps) {
   const { mutate } = useSWRConfig();
 
-  const [data, setData] = useState(initialState)
+  const [data, setData] = useState(initialState);
 
-  const handleInputChange = (e: any) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => {
     const { name, value } = e.target;
     setData({
       ...data,
@@ -31,9 +33,12 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
     });
   };
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.MouseEvent<HTMLElement>) => {
     event.preventDefault();
-    mutate('https://63583d4bc27556d2893a7d6f.mockapi.io/api/properties', createProperty(data));
+    mutate(
+      'https://63583d4bc27556d2893a7d6f.mockapi.io/api/properties',
+      createProperty(data)
+    );
   };
 
   const createProperty = (newData: Omit<Property, 'id' | 'createdAt'>) => {
@@ -50,7 +55,7 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
       .then((response) => response.text())
       .then((result) => console.log(result))
       .catch((error) => console.log('error', error));
-  };;
+  };
 
   return (
     <div className={styles.container}>

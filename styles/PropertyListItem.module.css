@@ -35,6 +35,6 @@
 }
 
 .price::after {
-  content: " EUR";
+  content: ' EUR';
   font-size: 12px;
 }

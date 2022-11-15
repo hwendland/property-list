@@ -1,9 +1,9 @@
-import { createContext } from "react";
-import { PropertySortOption, SortOrder } from "../models/property";
+import { createContext } from 'react';
+import { PropertySortOption, SortOrder } from '../models/property';
 
 export interface SortContextType {
-  order: SortOrder,
-  key: PropertySortOption
+  order: SortOrder;
+  key: PropertySortOption;
 }
 
 export const SortContext = createContext({

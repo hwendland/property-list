@@ -9,4 +9,4 @@ export interface Property {
 }
 
 export type PropertySortOption = 'price' | 'address';
-export type SortOrder = 'asc' | 'desc'
+export type SortOrder = 'asc' | 'desc';

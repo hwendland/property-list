@@ -1,19 +1,22 @@
-import Card from "@material-ui/core/Card";
-import CardHeader from "@material-ui/core/CardHeader";
-import CardContent from "@material-ui/core/CardContent";
-import IconButton from "@material-ui/core/IconButton";
-import CloseIcon from "@material-ui/icons/Close"
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
 import Image from 'next/image';
-import { Property } from "../models/property";
-import styles from "../styles/PropertyListItem.module.css"
-import { MouseEventHandler } from "react";
+import { Property } from '../models/property';
+import styles from '../styles/PropertyListItem.module.css';
+import { MouseEventHandler } from 'react';
 
 interface PropertyListItemProps {
   property: Property;
   onDelete: MouseEventHandler<HTMLButtonElement>;
 }
 
-export default function PropertyListItem({ property, onDelete }: PropertyListItemProps) {
+export default function PropertyListItem({
+  property,
+  onDelete,
+}: PropertyListItemProps) {
   return (
     <Card variant="outlined">
       <CardHeader
@@ -31,7 +34,13 @@ export default function PropertyListItem({ property, onDelete }: PropertyListIte
         disableTypography
       />
       <CardContent className={styles.cardContent}>
-        <Image priority src="/visual.png" alt="visual" width={130} height={88}></Image>
+        <Image
+          priority
+          src="/visual.png"
+          alt="visual"
+          width={130}
+          height={88}
+        ></Image>
         <div className={styles.info}>
           <div className={styles.infoRow}>
             <span className={styles.label}>Rooms</span>

@@ -2,7 +2,7 @@ import styles from '../styles/Layout.module.css';
 import Image from 'next/image';
 import Head from 'next/head';
 
-export interface LayoutProps extends React.HtmlHTMLAttributes<HTMLDivElement>{
+export interface LayoutProps extends React.HtmlHTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
 }
 
