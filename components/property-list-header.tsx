@@ -59,6 +59,7 @@ export default function PropertyListHeader() {
       </Select>
       <Button
         variant="contained"
+        color='primary'
         startIcon={<AddIcon />}
         onClick={toggleDrawer(!isDrawerOpen)}
       >

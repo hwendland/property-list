@@ -3,7 +3,7 @@
 }
 
 .header {
-  padding: 16px;
+  padding: 16px 24px;
   background-color: #444;
   display: flex;
   justify-content: space-between;

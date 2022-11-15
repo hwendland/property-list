@@ -113,7 +113,12 @@ export default function PropertyForm({ onClose }: PropertyFormProps) {
         />
       </div>
       <div className={styles.footer}>
-        <Button variant="contained" type="submit" onClick={handleSubmit}>
+        <Button
+          variant="contained"
+          color='primary'
+          type="submit"
+          onClick={handleSubmit}
+        >
           Create Property
         </Button>
       </div>
